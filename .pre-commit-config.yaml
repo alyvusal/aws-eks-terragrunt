@@ -1,0 +1,43 @@
+repos:
+# Some out-of-the-box hooks for pre-commit
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+# Collection of pre-commit hooks to be used with Yelp's pre-commit framework
+-   repo: https://github.com/kintoandar/pre-commit
+    rev: v2.1.2
+    hooks:
+    -   id: terraform_fmt
+# The official pre-commit hook for ShellCheck, the static analysis tool for shell scripts.
+-   repo: https://github.com/koalaman/shellcheck-precommit
+    rev: v0.8.0
+    hooks:
+    -   id: shellcheck
+# pre-commit hook which runs shfmt on shell script files
+-   repo: https://github.com/pecigonzalo/pre-commit-shfmt
+    rev: v2.1.0
+    hooks:
+    -   id: shell-fmt
+        args:
+        - -i
+        - '2'
+        - -sr
+        - -d
+        - -s
+        - -ln
+        - 'bash'
+# pre-commit-shell is a pre-commit component, which wrapper shellcheck to check shell scripts
+-   repo: https://github.com/detailyang/pre-commit-shell
+    rev: 1.0.5
+    hooks:
+    -   id: shell-lint
+        args:
+        - --format=json
+# Gitleaks is a SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens
+- repo: https://github.com/zricethezav/gitleaks
+  rev: v8.2.0
+  hooks:
+    - id: gitleaks
